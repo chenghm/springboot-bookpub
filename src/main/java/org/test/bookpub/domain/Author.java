@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Author {
 	@Id
@@ -50,6 +52,7 @@ public class Author {
 		this.lastName = lastName;
 	}
 
+	@JsonIgnore
 	public List<Book> getBooks() {
 		return books;
 	}

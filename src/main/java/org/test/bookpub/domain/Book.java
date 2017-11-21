@@ -23,7 +23,7 @@ public class Book {
 	@ManyToMany
 	private List<Reviewer> reviewers;
 
-	protected Book() {
+	public Book() {
 	}
 
 	public Book(String isbn, String title, Author author, Publisher publisher) {
