@@ -10,8 +10,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.test.bookpub.repository.BookRepository;
 
+import com.test.bookpubstarter.dbcount.EnableDbCounting;
+
 @SpringBootApplication
 @EnableScheduling 
+@EnableDbCounting
 public class BookPubApplication {
 	protected final Logger logger = LoggerFactory.getLogger(BookPubApplication.class);
 	@Autowired
@@ -30,6 +33,17 @@ public class BookPubApplication {
 	public void run(){
 		logger.info("Number	of	books:	"	+	bookRepository.count()); 
 	}
+	
+	
+//	@Bean
+//	public DbCountRunner dbCountRunner(Collection<CrudRepository> repositories) {
+//	    return new DbCountRunner(repositories) {
+//	        @Override
+//	        public void run(String... strings) throws Exception {
+//	            logger.info("Manually Declared DbCountRunner");
+//	        }
+//	    };
+//	}
 }
 
 
